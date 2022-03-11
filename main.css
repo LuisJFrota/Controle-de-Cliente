@@ -113,3 +113,10 @@ input {
     right: 10px;
     cursor: pointer;
 }
+.seuNome{
+    background-color: #dcdcdc;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 290px;
+    height: 45px;
+}
