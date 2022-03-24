@@ -1,31 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
     <!-- lib de icons -->
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <title>Document</title>
-</head>
-<body  bgcolor="dcdcdc">
-    <header class="menu-principal02">
-        <main>
-            <div class="header-2"></div>
-            <div class="registrar">
-                <font color="gray">
-                <h2 class="registrar-se">Registrar-se</h2>
-                </font> 
-                <form class="SeuNome" action="/register" method="POST">
-                    <input name="name" type="text" placeholder="Seu Nome">>
-                    <input name="email" type="text" placeholder="Email"> 
-                    <input name="password" type="password" placeholder="Senha"> 
-                    <input name="confPassword" type="password" placeholder="Comfirma sua senha"> 
-                    <span class="lnr lnr-eye"></span>
-                    <button class="botao02" type="submit"> <font color="f8f6f6">Registrar</font></button>
-                </form>
-                
-            </div>
-    </div>''
-        </main>
-    </header>
-</body>
+    <link rel="stylesheet" href="/style.css" />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <div class="main-cad">
+      <div class="left-cad"></div>
+      <div class="right-cad">
+        <form action="/register" method="post" class="card-cad">
+          <h1>Cadastro</h1>
+          <div class="textfield-cad">
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              data-min-length="2"
+              data-email-validate
+            />
+          </div>
+          <div class="textfield-cad1">
+            <label for="name">Nome:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Digite seu nome"
+              data-required
+              data-min-length="3"
+              data-max-length="16"
+            />
+          </div>
+          <div class="textfield-cad2">
+            <label for="lastname">Sobrenome:</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Digite seu sobrenome"
+              data-required
+              data-only-letters
+            />
+          </div>
+          <div class="textfield-cad">
+            <label for="lastname">Senha:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+              data-password-validate
+              data-required
+            />
+          </div>
+          <div class="textfield-cad">
+            <label for="passconfirmation">Confirmação de senha:</label>
+            <input
+              type="password"
+              name="passconfirmation"
+              id="passwordconfirmation"
+              placeholder="Digite novamente sua senha"
+              data-equal="password"
+            />
+          <div>
+            <input type="checkbox" name="agreement" id="agreement" />
+            <label for="agreement" id="agreement-label"
+              >Eu li e aceito os <a href="#">Termos de uso</a></label
+            >
+          </div>
+          <button type="submit" class="btn-cad">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

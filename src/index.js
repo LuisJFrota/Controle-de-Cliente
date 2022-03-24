@@ -2,62 +2,47 @@
 const express = require('express')
 const app = express()
 const { redirect } = require('express/lib/response')
-const router = express.Router()
-app.use(express.static(__dirname + '/views'));
-
-//Configuração Body Parser
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-
-//Configuração banco
-const mongoose = require("mongoose")
-const bd = require("./db")
-require("./models/User")
-const User = mongoose.model("user")
-
-//Configuração path
+const session = require('express-session');
+const flash = require('connect-flash')
 const path = require('path');
+const admin = require('./routes/admin')
+const passport = require('passport')
+require('./config/auth')(passport)
 
+//Configuração
+    //Sessão
+    app.use(session({
+        secret: "carrinhosalvo",
+        resave: true,
+        saveUninitialized: true
+    }))
+    app.use(passport.initialize())
+    app.use(passport.session())
+    app.use(flash())
+    //Middleware
+    app.use((req,res,next) => {
+        res.locals.success_msg = req.flash("success_msg")
+        res.locals.error_msg = req.flash("error_msg")
+        res.locals.error = req.flash("error")
+        next()
+    })
+    //css
+    app.use(express.static(__dirname + '/views'));
 
-//Configuração ejs
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'))
+    //Body Parser
+    app.use(bodyParser.urlencoded({extended: true}))
+    app.use(bodyParser.json())
 
-//Abrindo a porta
-app.listen(3000, () => {
-    console.log("Listen on port 3000")
-})
+    //ejs
+    app.set('view engine', 'ejs')
+    app.set('views', path.join(__dirname, 'views'))
 
-//Rotas - Mudar para admin.js
-
-router.use((req, res, next) => {
-    console.log('muito foda')
-    next()
-})
-
-app.get('/', (req,res) => {
-    res.render('index.ejs')
-})
-
-app.get('/register', (req,res) => {
-    res.render('Register.ejs')
-})
-
-app.post('/register', (req,res) => {
-    const userData = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    }
-    
-    new User(userData).save().then(() => {
-        console.log("Registrado com sucesso")
-    }).catch((err)=>{
-        console.log("erro ao registrar")
+    //Porta
+    app.listen(3000, () => {
+        console.log("Listen on port 3000")
     })
 
-    res.redirect('/register')
-})
-
+    //Rotas
+    app.use('/', admin)
 

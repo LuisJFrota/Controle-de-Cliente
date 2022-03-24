@@ -144,3 +144,186 @@ a {
     height: auto;
   }
 }
+
+.main-cad {
+  width: 100vw;
+  height: 120vh;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-cad {
+  width: 15px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.left-cad > h1 {
+  font-size: 3vw;
+  color: #77ffc0;
+}
+
+.right-cad {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-cad {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #2f2841;
+  border-radius: 20px;
+  box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-cad > h1 {
+  color: #ffffff;
+  font-weight: 800;
+  margin: 0;
+}
+
+.textfield-cad {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield-cad1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield-cad2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield-cad > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield-cad1 > input {
+  width: 45%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+.textfield-cad2 > input {
+  width: 45%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+  margin-top: 2px;
+  margin-left: 180px;
+}
+.textfield-cad > label {
+  color: #f0ffffde;
+  margin-bottom: 10px;
+}
+.textfield-cad1 > label {
+  color: #f0ffffde;
+  margin-bottom: 10px;
+}
+.textfield-cad2 > label {
+  color: #f0ffffde;
+  margin-bottom: 10px;
+  margin-left: 211px;
+  margin-top: -119px;
+}
+.textfield-cad > input::placeholder {
+  color: #f0ffff94;
+}
+.textfield-cad1 > input::placeholder {
+  color: #f0ffff94;
+}
+.textfield-cad2 > input::placeholder {
+  color: #f0ffff94;
+}
+p {
+  color: #ffffff;
+}
+
+a {
+  color: #2be1e7;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.btn-cad {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 3px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #dfdfdf;
+  background: #ff0000;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px #ff000052;
+}
+@media only screen and (max-width: 950px) {
+  .card-cad {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-cad {
+    flex-direction: column;
+  }
+  .left-cad > h1 {
+    display: none;
+  }
+
+  .left-cad {
+    width: 100%;
+    height: auto;
+  }
+
+  .right-cad {
+    width: 100%;
+    height: auto;
+  }
+}
