@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Empresa</title>
+    <link
+      rel="stylesheet"
+      href="/style.css"
+    />
+</head>
+<body>
+    <form action="/cadcliente" method="post" class="main-cad">
+        <div class="left-cad"></div>
+        <div class="right-cad">
+          <div class="card-cad">
+            <h1>Cadastrar Cliente</h1>
+            <div class="textfield-cad">
+              <label for="name">Nome</label>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder="Digite o nome da sua loja"
+                data-min-length="2"
+              />
+            </div>
+            <div class="textfield-cad">
+              <label for="email">E-mail:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                data-min-length="2"
+                data-email-validate
+              />
+          </div>
+            <div class="textfield-cad">
+              <div class="textfield-cad">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="text"
+                  name="telefone"
+                  id="numero"
+                  placeholder="Digite o telefone do responssavel"
+                  data-min-length="11"
+                  data-max-length="11"
+                />
+            </div>
+            <div class="textfield-cad">
+                <label for="comp">O que foi comprado</label>
+                <input 
+                type="text"
+                name="comp"
+                id="oQuefoiComprado"
+                placeholder="Digite o que o cliente compro"/>
+            </div>
+            
+            <div class="textfield-cad">
+              <label for="dataNacimento">Data de nascimento</label>
+              <input
+                type="date"
+                name="data"
+                id="dataNacismento"
+                placeholder="Digite o URL da sua loja"
+              />
+            </div>
+            <div class="textfield-cad1">
+              <label for="cidade">Cidade</label>
+              <input
+                type="text"
+                name="cidade"
+                id="cidade"
+                placeholder="Imforme sua cidade"
+              />
+            </div>
+              <div class="textfield-cad2">
+                <label for="estado">Estado</label>
+                <input
+                  type="text"
+                  name="estado"
+                  id="estado"
+                  placeholder="Informe seu estado"
+                />
+            </div>
+            <button type="submit" class="btn-cad">Registrar <a href=""></a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form action="/uploadfile" method="post" enctype="multipart/form-data" class="main-cad">
+        <div class="textfield-cad">
+            <label for="arquivo">Arquivo</label>
+            <input
+              type="file"
+              name="file"
+              id="file"          
+            />
+          </div>
+          <button type="submit" class="btn-cad">Registrar <a href=""></a></button>
+    </form>
+    
+</body>
+</html>

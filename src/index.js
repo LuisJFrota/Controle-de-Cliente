@@ -2,8 +2,8 @@
 const express = require('express')
 const app = express()
 const { redirect } = require('express/lib/response')
-const bodyParser = require('body-parser');
-const session = require('express-session');
+const bodyParser = require('body-parser')
+const session = require('express-session')
 const flash = require('connect-flash')
 const path = require('path');
 const admin = require('./routes/admin')

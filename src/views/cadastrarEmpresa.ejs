@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Empresa</title>
+    <link
+      rel="stylesheet"
+      href="/style.css"
+    />
+</head>
+<body>
+  <form action="/registershop" method="post">
+    <div class="main-cad">
+        <div class="left-cad"></div>
+        <div class="right-cad">
+          <div class="card-cad">
+            <h1>Cadastrar Empresa</h1>          
+            <div class="textfield-cad">
+              <label for="name">Nome da loja:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Digite o CNPJ da sua loja"
+                data-required
+                data-min-length="14"
+                data-max-length="14"
+              />
+            </div>
+            <div class="textfield-cad">
+              <label for="cnpj">CNPJ:</label>
+              <input
+                type="name"
+                name="cnpj"
+                id="cnpj"
+                placeholder="Digite o nome da sua loja"
+                data-min-length="2"
+                data-email-validate
+              />
+            </div>
+            <div class="textfield-cad">
+                <label for="tipo">Tipo de Produto</label>
+                <input 
+                type="text"
+                name="tipo"
+                id="tipoProduto"
+                placeholder="Digite o tipo de Produto que sua loja oferece"/>
+            </div>
+            
+            <div class="textfield-cad">
+              <label for="urlLoja">URL da loja:</label>
+              <input
+                type="text"
+                name="urlLoja"
+                id="urlLoja"
+                placeholder="Digite o URL da sua loja"
+              />
+            </div>
+            <div class="textfield-cad1">
+              <label for="cidade">Cidade</label>
+              <input
+                type="text"
+                name="cidade"
+                id="cidade"
+                placeholder="Informe sua cidade"
+              />
+            </div>
+              <div class="textfield-cad2">
+                <label for="estado">Estado</label>
+                <input
+                  type="text"
+                  name="estado"
+                  id="estado"
+                  placeholder="Informe seu estado"
+                />
+            </div>
+                <div class="textfield-cad">
+                    <label for="cpf">CPF do responssavel</label>
+                    <input
+                      type="text"
+                      name="cpf"
+                      id="cpf"
+                      placeholder="Digite o CPF do responsavel"
+                      data-min-length="11"
+                      data-max-length="11"
+                    />
+                </div>
+                    <div class="textfield-cad">
+                        <label for="telefone">Telefone</label>
+                        <input
+                          type="text"
+                          name="telefone"
+                          id="telefone"
+                          placeholder="Digite o telefone do responsavel"
+                          data-min-length="11"
+                          data-max-length="11"
+                        />
+                    </div>
+                        <div class="textfield-cad">
+                            <label for="email">E-mail:</label>
+                            <input
+                              type="email"
+                              name="email"
+                              id="email"
+                              placeholder="Digite o email profissional da loja"
+                              data-min-length="2"
+                              data-email-validate
+                            />
+                        </div>
+            <div class="termo">
+              <input type="checkbox" name="termo" id="Termos" />
+              <label for="termosUso" id="atermosdeuso"
+                >Eu li e aceito os <a href="#">Termos de uso</a></label>
+            </div>
+            <input type="submit" class="btn-cad">Registrar <a href=""></a></input>
+          </div>
+        </div>
+      </div>
+  <form>  
+</body>
+</html>
