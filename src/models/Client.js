@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const Client = Schema({
+const ClientSchema = Schema({
     name: {
         type: String,
         require: true
@@ -19,7 +19,7 @@ const Client = Schema({
         require: true
     },
     nasc: {
-        type: Date,
+        type: String,
         require: true
     },
     city: {
@@ -36,4 +36,4 @@ const Client = Schema({
     }
 })
 
-mongoose.model('client', Client)
+mongoose.model('client', ClientSchema)

@@ -15,15 +15,44 @@
           <ul>
             <a href="http://localhost:3000/cadastrarcliente" id="inscreva-se-btn"><li>Cadastrar Cliente</li></a>
           </ul>
-    </header>
-    <header>
+    </header>   
+    <body>
         <div class="titulo">
             <h1>Controle de Cliente</h1>
           </div>
+          <br>
+          <br>
           <table>
-              
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Comprado</th>
+                <th>Nascimento</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+              </tr>
+              <%for(usuario of Usuarios){%>
+              <tr>
+                <td><%=usuario.name%></td>
+                <td><%=usuario.email%></td>
+                <td><%=usuario.telefone%></td>
+                <td><%=usuario.comprado%></td>
+                <td><%=usuario.nasc%></td>
+                <td><%=usuario.city%></td>
+                <td><%=usuario.state%></td>
+              </tr>
+              <%}%>
           </table>
-    </header>
+          <style>
+            table,td,th {
+              border: 1px solid white;
+            }
+            th {
+              font: bolder
+            }
+          </style>
+    </body>
     
 </body>
 </html>

@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const app = express()
 
 //Configuração banco
 const mongoose = require("mongoose")
@@ -21,8 +20,8 @@ const results = []
 
 const fileUpload = require('express-fileupload')
 
-app.use(fileUpload())
-app.use(express.urlencoded({extended: true}))
+router.use(fileUpload())
+
 
 //Rotas 
 
@@ -38,7 +37,7 @@ router.post('/login', (req, res, next) => {
     })(req,res,next)
 })
 
-router.get('/', (req, res) => {
+router.get('/', (req, res) => {    
     res.render("PagPrincipal.ejs");
 })
 
@@ -59,7 +58,10 @@ router.get('/emailmarketing', (req,res) => {
 })
 
 router.get('/empresa', (req,res) => {
-    res.render('layoutEmpresa.ejs')
+    Client.find().exec((err, docs) =>
+    {
+        res.render('layoutEmpresa.ejs',{Usuarios:docs})
+    })  
 })
 
 router.get('/cadastrarcliente', (req,res) => {
@@ -74,7 +76,7 @@ router.get('/sobre', (req,res) => {
     res.render('Sobre.ejs')
 })
 
-router.post('/registerclient', (req,res) => {
+router.post('/cadcliente', (req,res) => {
     const clientData = {
         name: req.body.name,
         email: req.body.email,
@@ -85,9 +87,9 @@ router.post('/registerclient', (req,res) => {
         state: req.body.estado
     }
 
-    new Shop(clientData).save().then(() => {
+    new Client(clientData).save().then(() => {
         console.log("Cliente registrado")
-        res.redirect('/')
+        res.redirect('/dpregister')
     }).catch((err) => {
         console.log("Erro ao registrar clientea")
     })
@@ -102,14 +104,20 @@ router.post('/uploadfile', (req,res) => {
 
     let archive = req.files.file
     archive.mv(__dirname + "/arc.csv")
-
-    /*
-    fs.createReadStream(req.body.file)
-    .pipe(csv({}))
+    
+    fs.createReadStream(__dirname + "/arc.csv")
+    .pipe(csv({separator: ';'}))
     .on('data', (data) => results.push(data))
     .on('end', () => {
         console.log(results)
-    })*/
+        Client.insertMany(results).then(() => {
+            console.log("Cliente registrado")
+            res.redirect('/dpregister')
+        }).catch((err) => {
+            console.log("Erro ao registrar clientea")
+        })
+       
+    })
 })
 
 router.post('/registershop', (req,res) => {
@@ -127,7 +135,7 @@ router.post('/registershop', (req,res) => {
 
     new Shop(shopData).save().then(() => {
         console.log("Loja registrada")
-        res.redirect('/')
+        res.redirect('/dpregister')
     }).catch((err) => {
         console.log("Erro ao registrar loja")
     })
