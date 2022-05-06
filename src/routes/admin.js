@@ -57,6 +57,23 @@ router.get('/emailmarketing', (req,res) => {
     res.render('emailmarketing.ejs')
 })
 
+router.get('/deletevalue/:id', (req,res) => {
+    Client.findOneAndDelete({email: req.params.id}, (err, docs) => {
+        
+    })
+    res.redirect('/empresa')
+})
+
+
+//ta dando erro
+
+router.get('/empresa/:id', (req,res) => {
+    Client.find({name: {$regex: '^' + req.params.id, $options: 'i'}}).exec((err,docs) => 
+    {
+        res.render('layoutEmpresa.ejs',{Usuarios:docs})
+    })
+})
+
 router.get('/empresa', (req,res) => {
     Client.find().exec((err, docs) =>
     {

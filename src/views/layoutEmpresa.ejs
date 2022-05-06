@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +14,15 @@
           </div>
           <ul>
             <a href="http://localhost:3000/cadastrarcliente" id="inscreva-se-btn"><li>Cadastrar Cliente</li></a>
+            <input class="inputfile" type="file" name="file" id="file">
+            <label for="file">Click aqui e Adicione sua lista de Clientes</label>
           </ul>
-    </header>   
-    <body>
-        <div class="titulo">
-            <h1>Controle de Cliente</h1>
-          </div>
-          <br>
-          <br>
-          <table>
+    </header>
+    <header>
+      <main>
+      <div id="titulo">
+      <h1 id="txtControle">Controle de Cliente</h1>
+      <table id="tabela" border="1">
               <tr>
                 <th>Nome</th>
                 <th>Email</th>
@@ -41,18 +41,28 @@
                 <td><%=usuario.nasc%></td>
                 <td><%=usuario.city%></td>
                 <td><%=usuario.state%></td>
+                <td><a href="http://localhost:3000/deletevalue/<%=usuario.email%>">Excluir</a></td>
               </tr>
               <%}%>
           </table>
-          <style>
-            table,td,th {
-              border: 1px solid white;
-            }
-            th {
-              font: bolder
-            }
-          </style>
-    </body>
-    
-</body>
-</html>
+        </div>
+        
+        <div id="Tamanhodiv">
+          <input id="txtbusca" type="text"  placeholder="Buscar..."/>
+        </div>
+        
+      </main>
+      </header>
+  </body>
+  <script>
+    var input = document.getElementById('txtbusca')
+
+    input.addEventListener("keypress", (e) => {
+      if(e.key === "Enter")
+      {
+        event.preventDefault();
+        location = "http://localhost:3000/empresa/"+input.value
+      }
+    })
+  </script>
+  </html>

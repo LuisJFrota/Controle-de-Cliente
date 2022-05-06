@@ -216,7 +216,7 @@ a {
 .textfield-cad2 {
   width: 100%;
   margin-top: 11px;
-  margin-left: 40px;
+  margin-left: 5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -397,9 +397,12 @@ body{
   }
 
 #inscreva-se-btn{
+   background-color: rgb(34, 34, 34);
     border: 2px solid rgb(132, 14, 201);
     padding: 10px;
     border-radius: 15px;
+    margin-left: 550px;
+    width: 16%;
 }
 
 #inscreva-se-btn:hover{
@@ -699,8 +702,77 @@ body{
   margin-top: 90px;
   margin-left: 1%;
 }
-.cadsCliente {
+.inputfile {
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile:focus + label {
+  /* keyboard navigation */
+  outline: 1px dotted ;
+  outline: -
+  webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+  pointer-events: none;
+}
+.inputfile {
   border: 2px solid rgb(132, 14, 201);
-    padding: 10px;
-    border-radius: 15px;
+  padding: 12px;
+  border-radius: 15px;
+  background-color: rgb(34, 34, 34);
+  color: #ffffff;
+  border: none;
+}
+
+#txtbusca {
+  background-color: #2f2841;
+  border: 2px solid rgb(132, 14, 201);
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: -500px;
+  margin-top: 50px;
+  color: white;
+}
+#txtControle {
+  width: 80%;
+  width: 700px;
+  flex-direction: column;
+  align-items: center;
+  margin-right: -90px;
+}
+#Tamanhodiv {
+  width: 50%;
+}
+#txttela {
+ width: 50%;
+}
+main {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+#tabela {
+  border: none;
+  width: 20%;
+  padding: 0px 10px;
+  background-color: #2f2841;
+  border-color: rgb(132, 14, 201);
+  align-items: center;
+}
+#titulo {
+  width: 80%;
+  padding: 2% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #2f2841;
+  border-radius: 30px;
+  margin-top: 8%;
+  margin-left: 1%;
 }
