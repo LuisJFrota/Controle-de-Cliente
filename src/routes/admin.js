@@ -11,6 +11,8 @@ const Shop = mongoose.model("shop")
 require("../models/Client")
 const Client = mongoose.model("client");
 
+const sendMail = require("../sendEmail")
+
 const bcrypt = require('bcryptjs')
 const passport = require("passport")
 
@@ -57,6 +59,14 @@ router.get('/emailmarketing', (req,res) => {
     res.render('emailmarketing.ejs')
 })
 
+router.get('/procurarusuario', (req,res) => {
+    res.render('editarUsuario.ejs')
+})
+
+router.get('/editarusuario', (req,res) => {
+    res.render('editarUsuario2.ejs')
+})
+
 router.get('/deletevalue/:id', (req,res) => {
     Client.findOneAndDelete({email: req.params.id}, (err, docs) => {
         
@@ -64,8 +74,6 @@ router.get('/deletevalue/:id', (req,res) => {
     res.redirect('/empresa')
 })
 
-
-//ta dando erro
 
 router.get('/empresa/:id', (req,res) => {
     Client.find({name: {$regex: '^' + req.params.id, $options: 'i'}}).exec((err,docs) => 
@@ -91,6 +99,14 @@ router.get('/dpregister', (req,res) => {
 
 router.get('/sobre', (req,res) => {
     res.render('Sobre.ejs')
+})
+
+router.get('/enviaremail/:id', (req, res) =>
+{
+    var idlist = req.params.id
+    
+    sendMail.sendEmail(idlist)
+    res.redirect("/empresa");
 })
 
 router.post('/cadcliente', (req,res) => {

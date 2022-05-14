@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer')
 
 const SMTP_CONFIG = require('./config/smtp')
+const ejs = require('ejs')
 
 const transporter = nodemailer.createTransport({
     host: SMTP_CONFIG.host,
@@ -15,20 +16,52 @@ const transporter = nodemailer.createTransport({
     },
 })
 
-async function run()
-{
-    const mailSent = await transporter.sendMail({
-        text: "Email marketing",
-        subject: "Você esqueceu disso!",
-        from: "<emailmarket128@gmail.com>",
-        to: ["luisjuniorfrota@gmail.com", "vladimir.nicolau45@gmail.com"],
-        html: `
-        <html>
-            <strong>Compre imediatamente</strong>
-        </html>
-        `,
-    })
 
-    console.log(mailSent)
+async function sendEmail(x = [])
+{
+    await ejs.renderFile(__dirname + "/views/email.ejs", (err, data) =>{
+        if(err)
+        {
+            console.log(err)
+        }
+        else{
+            const mailSent = transporter.sendMail({
+                text: "Email marketing",
+                subject: "Você esqueceu disso!",
+                from: "<emailmarket128@gmail.com>",
+                bcc: x,
+                html: data,
+                attachments: [
+                    {
+                    filename: 'contato.png',
+                    path: __dirname + '/views/img/email/contato.png',
+                    cid: 'contato'
+                    },
+                    {
+                    filename: 'email_03.png',
+                    path: __dirname + '/views/img/email/email_03.png',
+                    cid: 'email3'
+                    },
+                    {
+                    filename: 'produto.png',
+                    path: __dirname + '/views/img/email/produto.png',
+                    cid: 'produto'
+                    },
+                    {
+                    filename: 'comprar.png',
+                    path: __dirname + '/views/img/email/comprar.png',
+                    cid: 'comprar'
+                    },
+                    {
+                    filename: 'email_01.png',
+                    path: __dirname + '/views/img/email/email_01.png',
+                    cid: 'email1'
+                    }
+                ]
+            })
+            console.log(mailSent)
+        }       
+    })    
 }
-//run()
+
+module.exports = {sendEmail}

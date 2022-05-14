@@ -21,6 +21,9 @@
     <header>
       <main>
       <div id="titulo">
+        <div id="Tamanhodiv">
+          <input id="txtbusca" type="text"  placeholder="Buscar..."/>
+        </div>
       <h1 id="txtControle">Controle de Cliente</h1>
       <table id="tabela" border="1">
               <tr>
@@ -31,6 +34,7 @@
                 <th>Nascimento</th>
                 <th>Cidade</th>
                 <th>Estado</th>
+                <th>Selecionar</th>
               </tr>
               <%for(usuario of Usuarios){%>
               <tr>
@@ -41,21 +45,34 @@
                 <td><%=usuario.nasc%></td>
                 <td><%=usuario.city%></td>
                 <td><%=usuario.state%></td>
+                <td><input id="cbIsSelected" class="cbIsSelected" type="checkbox" value="<%=usuario.email%>"></td>
                 <td><a href="http://localhost:3000/deletevalue/<%=usuario.email%>">Excluir</a></td>
               </tr>
               <%}%>
           </table>
-        </div>
-        
-        <div id="Tamanhodiv">
-          <input id="txtbusca" type="text"  placeholder="Buscar..."/>
-        </div>
-        
+        </div>             
       </main>
       </header>
+      <button id="sendEmail" name="sendEmail" class="btn-cad">Enviar</input>
+      <label id="show"></label>
   </body>
   <script>
     var input = document.getElementById('txtbusca')
+    var sendEmail = document.getElementById('sendEmail')   
+
+    sendEmail.addEventListener("click", (e) => {     
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked')
+      var checkList = []
+      
+      for (var checkbox of checkboxes) {      
+        checkList.push(checkbox.value)                
+      }
+      location = "http://localhost:3000/enviaremail/"+JSON.stringify(checkList)
+    })
+
+
+
+    
 
     input.addEventListener("keypress", (e) => {
       if(e.key === "Enter")
