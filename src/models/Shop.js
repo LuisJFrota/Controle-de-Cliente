@@ -38,6 +38,11 @@ const Shop = Schema({
         type: String,
         require: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "user",
+        require: true
+    },
     date: {
         type: Date,
         default: Date.now()

@@ -64,4 +64,24 @@ async function sendEmail(x = [])
     })    
 }
 
-module.exports = {sendEmail}
+async function sendEmailTemplate(x = [], template)
+{
+    await ejs.renderFile(__dirname + "/views/email.ejs", (err, data) =>{
+        if(err)
+        {
+            console.log(err)
+        }
+        else{
+            const mailSent = transporter.sendMail({
+                text: "Email marketing",
+                subject: "Você esqueceu disso!",
+                from: "<emailmarket128@gmail.com>",
+                bcc: x,
+                html: template,               
+            })
+            console.log(mailSent)
+        }       
+    })    
+}
+
+module.exports = {sendEmail,sendEmailTemplate}

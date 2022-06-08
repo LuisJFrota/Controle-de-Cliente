@@ -1,52 +1,94 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Conta</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div>
-        <h1>Editar Usuário</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #07070A">
+        <div class="container-fluid">
+        <a class="navbar-brand px-3" href="">
+            <img src="img/mailicon.png" width="50" height="50">
+        </a>
+        <div class="collapse navbar-collapse">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item active px-2">
+            <a class="nav-link" href="http://localhost:3000/logged">Inicio</a>
+            </li>
+            <li class="nav-item dropdown px-2">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sobre
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="http://localhost:3000/sobre">Conheça-nos</a></li>
+                <li><a class="dropdown-item" href="http://localhost:3000/contato">Contato</a></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
+        <div class="navbar-brand">
+            <a class="btn btn-outline-light my2" href="http://localhost:3000/empresa" id="entre-btn"> Manipular Tabelas </a>
+            <a class="btn btn-outline-light my2" href="http://localhost:3000/cadastrarempresa" id="inscreva-se-btn"> Cadastrar Empresa </a>
+            <a class="btn btn-outline-danger my2" href="http://localhost:3000/logout" >Sair</a>
+        </div>
+        <hr class="pb-0" style="background-color: white">   
+    </div>     
+    </nav>
+    <header>
+        <div class="p-4">
+
+        </div>
+    </header>
+  <body class="p-3 mb-2 bg-light">
+    <div class="p-5 m-5 bg-light border">  
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <h1>Editar Usuário</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="nomeChange">Novo nome: </label>
+                    <input class="form-control" type="text" id=nomeChange placeholder="Digite o novo nome...">
+                </div>
+                <div class="col-6">
+                    <label for="emailChange">Novo e-mail: </label>
+                    <input class="form-control" type="text" id=emailChange placeholder="Digite o novo e-mail...">
+                </div>
+                <div class="col">
+                    <label for="passwordChange">Nova senha: </label>
+                    <input class="form-control" type="text" id=passwordChange placeholder="Digite a nova senha...">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label for="telefoneChange">Novo telefone: </label>
+                    <input class="form-control" type="text" id=telefoneChange placeholder="Digite o novo numero...">
+                </div>
+                <div class="col-4">
+                    <label for="dataNascimentoChange">Nova data: </label>
+                    <input class="form-control" type="text" id=dataNascimentoChange placeholder="Digite a nova data de nascimento...">
+                </div>
+                <div class="col">
+                    <label for="estadoChange">Novo estado: </label>
+                    <input class="form-control" type="text" id=estadoChange placeholder="Digite o novo estado...">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-4">
+                    <label for="cidadeChange">Nova cidade: </label>
+                    <input class="form-control" type="text" id=cidadeChange placeholder="Digite a nova cidade...">
+                </div>
+            </div> 
+            <br>
+            <div class="form-group"><button class="btn btn-success" id="btSalvarEdicao">Salvar</button></div>
+        </div>
     </div>
-    <div>
-        <label for="nomeChange">Novo nome: </label>
-        <input type="text" id=nomeChange placeholder="Digite o novo nome...">
-    </div>
-    <br>
-    <div>
-        <label for="emailChange">Novo e-mail: </label>
-        <input type="text" id=emailChange placeholder="Digite o novo e-mail...">
-    </div>
-    <br>
-    <div>
-        <label for="passwordChange">Nova senha: </label>
-        <input type="text" id=passwordChange placeholder="Digite a nova senha...">
-    </div>
-    <br>
-    <div>
-        <label for="telefoneChange">Novo telefone: </label>
-        <input type="text" id=telefoneChange placeholder="Digite o novo numero...">
-    </div>
-    <br>
-    <div>
-        <label for="dataNascimentoChange">Nova data: </label>
-        <input type="text" id=dataNascimentoChange placeholder="Digite a nova data de nascimento...">
-    </div>
-    <br>
-    <div>
-        <label for="estadoChange">Novo estado: </label>
-        <input type="text" id=estadoChange placeholder="Digite o novo estado...">
-    </div>
-    <br>
-    <div>
-        <label for="cidadeChange">Nova cidade: </label>
-        <input type="text" id=cidadeChange placeholder="Digite a nova cidade...">
-    </div>
-    <br>
-    <div><button id="btSalvarEdicao">Salvar</button></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     
 </body>
 </html>

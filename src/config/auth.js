@@ -9,6 +9,7 @@ module.exports = function(passport){
     passport.use(new localStrategy({usernameField: 'email', passwordField: 'senha'}, (email, password, done) =>{
         Usuario.findOne({email: email}).then((usuario) => {
             if(!usuario) {
+                console.log("Usuário inexistente")
                 return done(null, false, {message: "Essa conta não existe"})
             }
             
@@ -17,6 +18,7 @@ module.exports = function(passport){
                 if(batem){
                     return done(null, usuario)
                 }else{
+                    console.log("senha incorreta")
                     return done(null, false, {message: "Senha incorreta"})
                 }
             })

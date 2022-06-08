@@ -30,6 +30,11 @@ const ClientSchema = Schema({
         type: String,
         require: true
     },
+    shop: {
+        type: Schema.Types.ObjectId,
+        ref: "shop",
+        require: true
+    },
     date: {
         type: Date,
         default: Date.now()
