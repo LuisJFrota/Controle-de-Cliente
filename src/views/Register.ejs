@@ -1,86 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
-    />
-    <!-- lib de icons -->
-    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Cadastro</title>
   </head>
-  <body>
-    <div class="main-cad">
-      <div class="left-cad"></div>
-      <div class="right-cad">
-        <form action="/register" method="post" class="card-cad">
-          <h1>Cadastro</h1>
-          <div class="textfield-cad">
-            <label for="email">E-mail:</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Digite seu e-mail"
-              data-min-length="2"
-              data-email-validate
-            />
-          </div>
-          <div class="textfield-cad1">
-            <label for="name">Nome:</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Digite seu nome"
-              data-required
-              data-min-length="3"
-              data-max-length="16"
-            />
-          </div>
-          <div class="textfield-cad2">
-            <label for="lastname">Sobrenome:</label>
-            <input
-              type="text"
-              name="lastname"
-              id="lastname"
-              placeholder="Digite seu sobrenome"
-              data-required
-              data-only-letters
-            />
-          </div>
-          <div class="textfield-cad">
-            <label for="lastname">Senha:</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Digite sua senha"
-              data-password-validate
-              data-required
-            />
-          </div>
-          <div class="textfield-cad">
-            <label for="passconfirmation">Confirmação de senha:</label>
-            <input
-              type="password"
-              name="passconfirmation"
-              id="passwordconfirmation"
-              placeholder="Digite novamente sua senha"
-              data-equal="password"
-            />
-          <div>
-            <input type="checkbox" name="agreement" id="agreement" />
-            <label for="agreement" id="agreement-label"
-              >Eu li e aceito os <a href="#">Termos de uso</a></label
-            >
-          </div>
-          <button type="submit" class="btn-cad">Registrar</button>
-        </form>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #07070A">
+    <div class="container-fluid">
+      <a class="navbar-brand px-3" href="">
+        <img src="img/mailicon.png" width="50" height="50">
+      </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item active px-2">
+          <a class="nav-link" href="http://localhost:3000/logged">Inicio</a>
+        </li>
+        <li class="nav-item dropdown px-2">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sobre
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="http://localhost:3000/sobre">Conheça-nos</a></li>
+            <li><a class="dropdown-item" href="http://localhost:3000/contato">Contato</a></li>
+          </ul>
+        </li>
+      </ul>
       </div>
+      <div class="navbar-brand">
+        <a class="btn btn-outline-light my2" href="http://localhost:3000/login" id="entre-btn"> Entrar </a>
+        <a class="btn btn-outline-light my2" href="http://localhost:3000/register" id="inscreva-se-btn"> Inscrever-se </a>
+      </div>
+    <hr class="pb-0" style="background-color: white">   
+  </div>     
+</nav>
+  <body>
+    <header class="py-5"></header>
+    <div class="container py-5 h-100 border">
+      <div>
+        <h3>Registrar</h3>
+      </div>
+      <form action="/register" method="post">
+        <div class="row">     
+            <div class="col-md-6 mb-4">
+              <label for="name">Nome:</label>
+              <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Digite seu nome">
+            </div>
+            <div class="col-md-6 mb-4">
+              <label for="lastname">Sobrenome:</label>
+              <input type="text" name="lastname" id="lastname" class="form-control form-control-lg"  placeholder="Digite seu sobrenome">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+              <label for="email">E-mail:</label>
+              <input type="email" name="email" id="email" class="form-control form-control-lg"  placeholder="Digite seu e-mail">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <label for="lastname">Senha:</label>
+            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Digite sua senha">
+          </div>
+          <div class="col-md-6 mb-4">
+            <label for="passconfirmation">Confirmação de senha:</label>
+            <input type="password" name="passconfirmation" id="passwordconfirmation" class="form-control form-control-lg" placeholder="Digite novamente sua senha">
+          </div>
+        </div>      
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <button type="submit" class="btn btn-success">Registrar</button>     
+          </div>
+        </div>   
+        <%for(erros of Erros){%>
+          <div class="alert alert-danger">
+            <%=erros.text%>
+          </div>
+        <%}%>        
+        </div>
+      </form>    
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

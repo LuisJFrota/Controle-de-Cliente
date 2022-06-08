@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/register', (req,res) => {
-    res.render('Register.ejs')
+    res.render('Register.ejs',{Erros : []})
 })
 
 router.get('/cadastrarempresa', eAdmin, (req,res) => {
@@ -204,8 +204,6 @@ router.post('/uploadtemplate', eAdmin, (req,res) => {
 
 router.post('/uploadfile', eAdmin, (req,res) => {
     
-
-    
 })
 
 router.post('/registershop', eAdmin, (req,res) => {
@@ -311,69 +309,58 @@ router.post('/register', (req,res) => {
     //Validação do nome
     if(!req.body.name || typeof req.body.name == undefined || req.body.name == null)
     {
-        console.log("Nome invalido");
-        erros.push({text: "nome inválido"})        
+        erros.push({text: "Nome inválido"})     
     }
     
-    if(req.body.name.length < 3)
+    else if(req.body.name.length < 3)
     {
-        console.log("Nome pequeno");
         erros.push({text: "Nome muito pequeno"})
     }
-    if(req.body.name.length > 15)
+    else if(req.body.name.length > 15)
     {
-        console.log("Nome grande");
         erros.push({text: "Nome muito grande"})
     }
 
     //validação do sobrenome
     if(!req.body.lastname || typeof req.body.lastname == undefined || req.body.lastname == null)
     {
-        console.log("sobrenome invalido");
-        erros.push({text: "sobrenome inválido"})
+        erros.push({text: "Sobrenome inválido"})
     }
-    if(req.body.lastname.length < 3)
+    else if(req.body.lastname.length < 3)
     {
-        console.log("sobrenome pequeno");
-        erros.push({text: "Nome muito pequeno"})
+        erros.push({text: "Sobrenome muito pequeno"})
     }
-    if(req.body.lastname.length > 15)
+    else if(req.body.lastname.length > 15)
     {
-        console.log("sobrenome grande");
-        erros.push({text: "Nome muito grande"})
+        erros.push({text: "Sobrenome muito grande"})
     }
 
 
     //Validação do email
     if(!req.body.email || typeof req.body.email == undefined || req.body.email == null)
     {
-        console.log("email invalido");
-        erros.push({text: "senha inválida"})
+        erros.push({text: "Email inválido"})
     }
     
     //validação da senha
     if(!req.body.password || typeof req.body.password == undefined || req.body.password == null)
     {
-        console.log("senha invalida");
-        erros.push({text: "senha inválida"})
+        erros.push({text: "Senha inválida"})
     }
-    if(req.body.password.length < 5)
+    else if(req.body.password.length < 5)
     {
-        console.log("senha muito curta");
         erros.push({text: "Senha muito curta"})
     }
-    if(req.body.password.length > 20)
+    else if(req.body.password.length > 20)
     {
-        console.log("senha muito longa");
         erros.push({text: "Senha muito longa"})
     }
     
     if(erros.length > 0)
     {
-        res.redirect("/register")
+        res.render('Register.ejs',{Erros : erros})
         return
     }
-    
 
     const userData = {
         name: req.body.name,
