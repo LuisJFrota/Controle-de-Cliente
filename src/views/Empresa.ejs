@@ -41,6 +41,57 @@
   <header class="mt-5" style="height: 100px">
     
   </header>
+  <div class="modal" id="reg-modal" name="reg-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title">Customize seu envio!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <select class="form-control" name="selecione" id="selecionaropcao">
+                  <option value="escolha">Escolha uma opção</option>
+                  <option value="unicaPessoa">Enviar para um cliente especific</option>
+                  <option value="variaPessoas">Enviar para varios clientes</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input class="form-control" type="date">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input class="posicaotamplate" type="radio" id="tamplate1" name="tamplate" value="Tamplate 1">
+                <label for="tamplate1">Template 1</label>
+                <img class="tamplate1" src="/img/ATLASTEC (1).png">
+              </div>
+              <div class="col">
+                <input class="posicaotamplate" type="radio" id="tamplate2" name="tamplate" value="tamplate 2">
+                <label for="tamplate2">Template 2</label>
+                <img class="tamplate2" src="/img/ATLASTEC (2).png">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="lastName" class="form-label">Use seu proprio template html!</label>
+                <input type="file" name="file" id="file" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="p-5 m-5 bg-light border">
     <div class="container">
     <div class="row">
@@ -49,7 +100,7 @@
       </div>
       <div class="col">
         <a href="http://localhost:3000/cadastrarcliente" class="btn btn-primary" id="inscreva-se-btn">Cadastrar Cliente</a>
-        <a href="" class="btn btn-primary" id="inscreva-se-btn">Configurar</a>
+        <button type="button" class="btn btn-primary" id="config-btn" name="config-btn" data-bs-toggle="modal" data-bs-target="#reg-modal"> Configurar Email </button>
       </div>   
     </div>
     <div class="row mt-3">
@@ -65,6 +116,7 @@
               <th>Cidade</th>
               <th>Estado</th>
               <th>Selecionar</th>
+              <th>Editar</th>
               <th>Excluir</th>
             </tr>
           </thead>
@@ -79,7 +131,8 @@
               <td><%=usuario.city%></td>
               <td><%=usuario.state%></td>
               <td><input id="cbIsSelected" class="cbIsSelected" type="checkbox" value="<%=usuario.email%>"></td>
-              <td><a href="http://localhost:3000/deletevalue/<%=usuario.email%>">Excluir</a></td>
+              <td><a href="http://localhost:3000/editarusuario/<%=usuario._id%>">Editar</a></td>
+              <td><a href="http://localhost:3000/deletevalue/<%=usuario._id%>">Excluir</a></td>
             </tr>
             <%}%>
           </tbody>
@@ -116,7 +169,7 @@
       if(e.key === "Enter")
       {
         event.preventDefault();
-        location = "http://localhost:3000/empresa/"+input.value
+        location = "http://localhost:3000/empresa/<%=usuario.shop%>/"+input.value
       }
     })
   </script>

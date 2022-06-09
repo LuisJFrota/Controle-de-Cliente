@@ -59,7 +59,6 @@ async function sendEmail(x = [])
                     }
                 ]
             })
-            console.log(mailSent)
         }       
     })    
 }
@@ -79,7 +78,6 @@ async function sendEmailTemplate(x = [], template)
                 bcc: x,
                 html: template,               
             })
-            console.log(mailSent)
         }       
     })    
 }

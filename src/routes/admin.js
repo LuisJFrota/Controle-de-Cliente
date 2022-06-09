@@ -67,8 +67,10 @@ router.get('/procurarusuario', eAdmin, (req,res) => {
     res.render('editarUsuario.ejs')
 })
 
-router.get('/editarusuario', eAdmin, (req,res) => {
-    res.render('editarUsuario2.ejs')
+router.get('/editarusuario/:id', eAdmin, (req,res) => {
+    Client.findOne({_id: req.params.id}).exec((err,docs) => {
+        res.render('editarUsuario.ejs', {Client: docs})
+    })  
 })
 
 router.get('/emailconfig', eAdmin, (req,res) => {
@@ -80,7 +82,7 @@ router.get('/popup', (req,res) => {
 })
 
 router.get('/deletevalue/:id', eAdmin, (req,res) => {
-    Client.findOneAndDelete({email: req.params.id}, (err, docs) => {
+    Client.findOneAndDelete({_id: req.params.id}, (err, docs) => {
         res.redirect('/empresa/'+docs.shop)
     }) 
 })
@@ -120,15 +122,30 @@ router.get('/enviaremail/:id', eAdmin, (req, res) =>
     fs.createReadStream(__dirname + "/template.html")
     .on('data', (data) => {
         console.log(data.toString('utf-8'))  
-        sendMail.sendEmailTemplate(idlist, data.toString('utf-8'))
-        //sendMail.sendEmail(idlist);
-        res.redirect('/empresa')  
+        //sendMail.sendEmailTemplate(idlist, data.toString('utf-8'))
+        sendMail.sendEmail(idlist);
+        res.redirect('/logged')  
     })
 })
 
 router.get('/logout', (req,res) => {
     req.logout();
     res.redirect('/')
+})
+
+router.post('/edit', eAdmin, (req,res) => {
+    Client.findOneAndUpdate({_id: req.body._id},{
+        name: req.body.name,
+        email: req.body.email,
+        telefone: req.body.telefone,
+        comprado: req.body.comprado,
+        nasc: req.body.nasc,
+        city: req.body.city,
+        state: req.body.state
+    }, (err, docs) => {
+        console.log(docs)
+        res.redirect('/')
+    })
 })
 
 router.post('/cadcliente', eAdmin, (req,res) => {

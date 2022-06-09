@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Editar Usuário</title>
+    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #07070A">
@@ -28,33 +28,69 @@
         </ul>
         </div>
         <div class="navbar-brand">
-            <a class="btn btn-outline-light my2" href="http://localhost:3000/empresa" id="entre-btn"> Manipular Tabelas </a>
+            <a class="btn btn-outline-light my2" href="http://localhost:3000/cadastrarempresa" id="inscreva-se-btn"> Cadastrar Empresa </a>
             <a class="btn btn-outline-danger my2" href="http://localhost:3000/logout" >Sair</a>
         </div>
         <hr class="pb-0" style="background-color: white">   
     </div>     
     </nav>
     <header>
-        <div class="p-2">
+        <div class="p-4">
 
         </div>
     </header>
-  <body class="p-3 mb-2 bg-light text-white">
-    <div class="container">
-    <form action="">
-        <div class="form-group">
-            <h1>Editar Usuário</h1>
+  <body class="p-3 mb-2 bg-light">
+    <div class="p-5 m-5 bg-light border">  
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <h1>Editar Usuário</h1>
+                </div>
+            </div>
+            <form action="/edit" method="post">
+            <div class="row">
+                <input class="form-control" type="text" id="_id" name="_id" value="<%=Client._id%>" placeholder="Digite o novo nome..." disabled>
+                <div class="col">
+                    <label for="nomeChange">Novo nome: </label>
+                    <input class="form-control" type="text" id="nomeChange" name="name" value="<%=Client.name%>" placeholder="Digite o novo nome...">
+                </div>
+                <div class="col-6">
+                    <label for="emailChange">Novo e-mail: </label>
+                    <input class="form-control" type="text" id="emailChange" name="email" value="<%=Client.email%>" placeholder="Digite o novo e-mail...">
+                </div>
+                <div class="col">
+                    <label for="passwordChange">Novo produto: </label>
+                    <input class="form-control" type="text" id="passwordChange" name="comprado" value="<%=Client.comprado%>"  placeholder="Digite o item comprado...">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label for="telefoneChange">Novo telefone: </label>
+                    <input class="form-control" type="text" id="telefoneChange" name="telefone" value="<%=Client.telefone%>" placeholder="Digite o novo numero...">
+                </div>
+                <div class="col-4">
+                    <label for="dataNascimentoChange">Nova data: </label>
+                    <input class="form-control" type="text" id="dataNascimentoChange" name="nasc" value="<%=Client.nasc%>"  placeholder="Digite a nova data de nascimento...">
+                </div>
+                <div class="col">
+                    <label for="estadoChange">Novo estado: </label>
+                    <input class="form-control" type="text" id="estadoChange" name="state" value="<%=Client.state%>" placeholder="Digite o novo estado...">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-4">
+                    <label for="cidadeChange">Nova cidade: </label>
+                    <input class="form-control" type="text" id="cidadeChange" name="city" value="<%=Client.city%>" placeholder="Digite a nova cidade...">
+                </div>
+            </div> 
+            <br>
+            <div class="form-group"><button class="btn btn-success" id="btSalvarEdicao">Salvar</button></div>
+            </form>
         </div>
-        <div class="form-group" id="id">
-            <label for="id">ID do Usuário: </label>
-            <input class="form-control" type="text" id=id placeholder="Digite o ID do usuário...">
-        </div>
-        <br>
-        <div class="form-group">
-            <button class="btn btn-secondary" id="btContinuarEdicao">Próximo</button>
-        </div>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
 </body>
 </html>
